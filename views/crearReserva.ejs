@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <div class="row mt-5">
+        <h1 class="text-center border-bottom">Crear Reserva</h1>
+        <div class="col">
+            <form action="/api/reservas" method="POST">
+                <div class="mb-3">
+                    <label for="nombre_persona" class="form-label">Nombre de la persona:</label>
+                    <input type="text" class="form-control" id="nombre_persona" name="nombre_persona" required>
+                </div>
+                <div class="mb-3">
+                    <label for="codigo" class="form-label">Código:</label>
+                    <input type="text" class="form-control" id="codigo" name="codigo" required>
+                </div>
+                <div class="mb-3">
+                    <label for="fecha_reserva" class="form-label">Fecha de reserva:</label>
+                    <input type="date" class="form-control" id="fecha_reserva" name="fecha_reserva" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
