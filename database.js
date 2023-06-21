@@ -8,9 +8,11 @@ const sequelize = new Sequelize(
         host: process.env.DB_HOST, 
         dialect: process.env.DB_DIALECT
     });
-
+ 
 module.exports = {
     sequelize,
     DataTypes,
     Model
 }
+
+
