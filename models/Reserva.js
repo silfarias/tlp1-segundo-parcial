@@ -1,12 +1,7 @@
 // TODO: Crear modelo de datos de Reserva
-const { Sequelize, Model, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('../database');
 
-const sequelize = new Sequelize('reservadb', 'silvanaf', '246344', {
-    host: "localhost",
-    dialect: "mysql"
-})
-
-const reservasModel = sequelize.define('reservas', {
+const reservas = sequelize.define('reservas', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -26,16 +21,7 @@ const reservasModel = sequelize.define('reservas', {
       }
     });
 
-    (async () => {
-        try {
-          await sequelize.authenticate();
-          console.log('CONEXIÓN A LA BASE DE DATOS EXITOSA');
-        } catch (error) {
-          console.error('ERROR AL CONECTAR LA BASE DE DATOS:', error);
-        }
-      })();
+// Crear tabla si no existe
+reservas.sync();
 
-module.exports = {
-    sequelize,
-    reservasModel
-};
+module.exports = reservas;

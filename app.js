@@ -6,6 +6,15 @@ const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
 
+
+require('dotenv').config();
+
+const { sequelize } = require('./db');
+//Instancia de conexión a la Base de Datos
+sequelize.authenticate()
+    .then(() => console.log('Conexión a base de datos exitosa'))
+    .catch((error) => console.log('Error al conectar a base de datos', error));
+
 const app = express();
 
 // Middlewares
